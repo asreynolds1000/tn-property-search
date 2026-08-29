@@ -82,6 +82,20 @@ function toRef(a: Attrs): TnParcelRef {
   };
 }
 
+/**
+ * CITY, NEIGHBORHD and PROP_TYP are deliberately NOT mapped to the normalized
+ * `city` / `subdivision` / `propertyClass` fields.
+ *
+ * All three are opaque internal codes, not names: CITY has ten distinct values
+ * and they look like "701", "263264", "000"; NEIGHBORHD and PROP_TYP are
+ * integers ("1206", "102500"). The layer publishes no coded-value domain for
+ * any of them, so there is nothing to decode them against. Surfacing "263264"
+ * as a city name is worse than omitting it - a caller cannot tell a code from
+ * a name, and a downstream report would print it verbatim.
+ *
+ * They remain in `raw` under their source field names, where the caller can
+ * see them for what they are.
+ */
 function toSummary(a: Attrs): ParcelSummary {
   return {
     ref: toRef(a),
@@ -89,9 +103,6 @@ function toSummary(a: Attrs): ParcelSummary {
     owner: str(a.OWNER_1),
     ownerSecondary: str(a.OWNER_2),
     propertyAddress: str(a.ADDRESS),
-    city: str(a.CITY),
-    subdivision: str(a.NEIGHBORHD),
-    propertyClass: str(a.PROP_TYP),
     totalAppraised: num(a.TOTAL_MARK),
     acres: acres(a.AC),
     lastSalePrice: num(a.CONSIDER_L),

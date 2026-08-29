@@ -1,4 +1,6 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { acres, whereFor, williamsonAssessment, williamsonGeometry } from '../lib/api/williamson.js';
 
 describe('acres', () => {
@@ -99,5 +101,28 @@ describe('williamson provider metadata', () => {
     // Unlike TPAD, one layer read yields the appraisal, so the tool layer can
     // skip a per-row detail fetch.
     expect(williamsonAssessment.valuesOnSearch).toBe(true);
+  });
+});
+
+describe('opaque code fields', () => {
+  // CITY, NEIGHBORHD and PROP_TYP are internal codes with no published
+  // domain: CITY takes values like "701" and "263264"; the other two are
+  // integers. They were briefly mapped into city/subdivision/propertyClass,
+  // and a real point lookup came back with city "263264". A caller cannot
+  // tell a code from a name, so these must stay out of the semantic fields
+  // and live in `raw` under their source names instead.
+  const src = readFileSync(
+    fileURLToPath(new URL('../lib/api/williamson.ts', import.meta.url)),
+    'utf8'
+  );
+
+  it('never feeds the semantic fields from the code columns', () => {
+    expect(src).not.toMatch(/\bcity:\s*str\(a\.CITY\)/);
+    expect(src).not.toMatch(/\bsubdivision:\s*str\(a\.NEIGHBORHD\)/);
+    expect(src).not.toMatch(/\bpropertyClass:\s*str\(a\.PROP_TYP\)/);
+  });
+
+  it('still requests them, so raw can expose them honestly', () => {
+    for (const f of ['CITY', 'NEIGHBORHD', 'PROP_TYP']) expect(src).toContain(`'${f}'`);
   });
 });
