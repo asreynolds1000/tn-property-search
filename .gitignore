@@ -1,0 +1,13 @@
+node_modules/
+dist/
+*.log
+
+# Raw captures: contain session cookies, ASP.NET_SessionId, ArcGIS tokens
+*.har
+captures/
+
+# Real-identity artifacts. Never published.
+fixtures-live/
+scripts/scrub-map.local.json
+.env.local
+mcp-server/README.md

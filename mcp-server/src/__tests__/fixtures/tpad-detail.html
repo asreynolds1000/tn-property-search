@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="This site allows anyone to search for property values and other key information about properties across the state of Tennessee. The data on this site is produced by the state's county Assessors of Property.">
+    <title>Tennessee Property Assessment Data | Parcel Details</title>
+    <script src="/TPAD/lib/fontawesome-free-6.2.0-web/js/all.js" crossorigin="anonymous" data-auto-add-css="false"></script>
+    <link href="/TPAD/lib/fontawesome-free-6.2.0-web/css/svg-with-js.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/TPAD/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="/TPAD/lib/datatables/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="/TPAD/lib/datatables/Buttons-1.6.1/css/buttons.bootstrap.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/TPAD/css/site.css?v=3WF3C8mAcAstnIFQhXmBxZHmp2E5wNTjxVJ5dXqrLak" />
+    <link rel="stylesheet" href="/TPAD/TPAD.styles.css?v=-1OzCOxLu75eBq1mSxs15ekLGfX6ttMctA36DyaDjTE" />
+    <script>
+         var digitalData = { pageInfo: {} };
+             digitalData.pageInfo.pageName = "Tennessee Property Assessment Data | Parcel Details";
+    </script>
+    <script src="//assets.adobedtm.com/e790127e2e40/e5bc9e02467e/launch-d2c3fa425e71.min.js" async=""></script>
+    <script src="/TPAD/lib/jquery/dist/jquery.js"></script>
+
+</head>
+<body>
+    <header b-zbz6xhz8ei>
+        <nav b-zbz6xhz8ei class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light">
+            <div b-zbz6xhz8ei class="container-fluid">
+                <div b-zbz6xhz8ei class="comptroller-logo">
+                    <a b-zbz6xhz8ei class="navbar-brand" href="https://comptroller.tn.gov/">
+                        <img alt="Tennessee Comptroller of the Treasury logo" title="Tennessee Comptroller of the Treasury logo" src="/TPAD/images/CoTLogo.png" style="height:100%; image-rendering: -webkit-optimize-contrast;" />
+                    </a>
+                </div>
+                <button b-zbz6xhz8ei class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span b-zbz6xhz8ei class="navbar-toggler-icon"></span>
+                </button>    
+                <div b-zbz6xhz8ei class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul b-zbz6xhz8ei class="navbar-nav ms-auto">
+                        <li b-zbz6xhz8ei class="nav-item">
+                            <a class="nav-link" href="/TPAD">Search</a>
+                        </li>
+                        <li b-zbz6xhz8ei class="nav-item">
+                            <a class="nav-link" target="_blank" href="/TPAD/Utilities/Glossary">Glossary</a>
+                        </li>
+                        <li b-zbz6xhz8ei class="nav-item">
+                            <a class="nav-link" target="_blank" href="/TPAD/Utilities/Help">Help</a>
+                        </li>
+                        <li b-zbz6xhz8ei class="nav-item">
+                            <a b-zbz6xhz8ei target="_blank" class="nav-link" href= "https://comptroller.tn.gov/office-functions/pa/property-taxes/assessment-vs-taxation.html">Fact Sheet</a>
+                        </li> 
+                        <li b-zbz6xhz8ei class="nav-item">
+                            <a b-zbz6xhz8ei target="_blank" class="nav-link" href="https://comptroller.tn.gov/office-functions/pa/gisredistricting/redistricting-and-land-use-maps.html">GIS Parcel Data</a>
+                        </li> 
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div b-zbz6xhz8ei class="container">
+        <main b-zbz6xhz8ei role="main" class="pb-3">
+            <input type="hidden" id="tylerToken" name="TylerToken" value="" />
+<input type="hidden" id="jurForTyler" name="Parcel.Jur" value="030" />
+<input type="hidden" id="parcelIdForTyler" name="Parcel.ParcelId" value="133E%20C%2000100%20000" />
+<div b-kvb30zai7e>  
+    <div b-kvb30zai7e class="row d-flex align-items-end mb-2">       
+        <div b-kvb30zai7e class="col">
+            <a class="text-decoration-none text-black" class="mt-2" href="/TPAD/Search?serializedParameters=%7B%22GISLink%22%3A%22030133E%20C%2000100%22,%22Jur%22%3A%22030%22,%22Query%22%3Anull,%22Owner%22%3Anull,%22PropertyAddress%22%3Anull,%22SubdivisionName%22%3A%22THORNWOOD%20RUN%22,%22PropertyType%22%3Anull,%22SaleDateRangeStart%22%3Anull,%22SaleDateRangeStartFormatted%22%3A%22%22,%22SaleDateRangeEnd%22%3Anull,%22SaleDateRangeEndFormatted%22%3A%22%22,%22ControlMap%22%3A%22133E%20%22,%22ControlMapFormatted%22%3A%22133E%22,%22MapGroup%22%3A%22C%20%22,%22MapGroupFormatted%22%3A%22C%22,%22ParcelNumber%22%3A%2200100%22,%22ParcelNumberFormatted%22%3A%2200100%22,%22Group%22%3Anull,%22Parcel%22%3Anull,%22SortBy%22%3Anull,%22ClearDatatable%22%3Atrue%7D">
+                <i b-kvb30zai7e aria-hidden="true" title="Back to search results"class="fa-solid fa-angle-left fa-xs">
+                </i> Return to Results
+            </a>
+        </div>
+        <div b-kvb30zai7e class="col">
+            <a class="btn btn-warning btn-small ms-2 float-end pdf-button" href="/TPAD/Parcel/PrintPDF?parcelKey=030133E%20C%2000100%20000"><i b-kvb30zai7e class="fa-solid fa-download"></i> PDF</a>
+            <a b-kvb30zai7e class="btn btn-primary btn-small float-end" href="https://tnmap.tn.gov/assessment/#/parcel/030133E&#x2B;C&#x2B;00100" target="_blank"><i b-kvb30zai7e class="fa-solid fa-arrow-up-right-from-square"></i>  GIS Map</a>
+        </div>
+    </div>
+
+    <div b-kvb30zai7e class="background-white padding-15-px detailspage shadow rounded">
+        <div b-kvb30zai7e class="row">
+            <div b-kvb30zai7e class="col-lg-6 col-md-6 col-sm-12">
+                <h1 b-kvb30zai7e class="display-4">Parcel Details</h1>
+                <div b-kvb30zai7e class="parcel-county-and-tax-year"> Greene County, TN | Tax Year 2026</div>
+            </div>
+            <div b-kvb30zai7e class="col-lg-6 col-md-6 col-sm-12">
+                
+<div class=" card mb-2">
+    <div class="card-header">
+        County Information
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col"><strong>County Number:</strong> 030</div>
+            <div class="col"><strong>Reappraisal Year:</strong> 2023</div>
+        </div>
+    </div>
+</div> 
+            </div>
+        </div>
+        <div b-kvb30zai7e class="row mb-2">
+            <div b-kvb30zai7e class="col-lg-6 col-md-6 col-sm-12">
+                
+<div class="card mb-2">
+    <div class="card-header">
+        Property Owner and Mailing Address
+    </div>
+    <div class="card-body">
+        <div class="row">
+                <div class="col">
+                    <div><strong>January 1 Owner</strong></div>
+                        <div>QUILLERAN ODIS  </div>
+                        <div>VOSTRIK </div>
+                    <div>135 ALDER CT </div>
+                    <div></div>
+                    <div>MILLBROOKE  TN 37743</div>
+                </div>      
+        </div>
+    </div>
+</div> 
+            </div>
+             <div b-kvb30zai7e class="col-lg-6 col-md-6 col-sm-12">
+                
+<div b-yg9xaoucyq class="card">
+    <div b-yg9xaoucyq class="card-header">
+        Property Location
+    </div>
+    <div b-yg9xaoucyq class="card-body">
+        <div b-yg9xaoucyq class="row">
+             <div b-yg9xaoucyq class="col">
+                    <p b-yg9xaoucyq class="detailsPage"><strong b-yg9xaoucyq>Address:</strong> ALDER CT   135</p>
+             </div>
+       </div>
+       <div b-yg9xaoucyq class="card-body border rounded background-gray small">
+            <div b-yg9xaoucyq class="row">
+                 <span b-yg9xaoucyq class="col reduce-size"><strong b-yg9xaoucyq>Control</strong></span>
+                 <span b-yg9xaoucyq class="col reduce-size"><strong b-yg9xaoucyq>Group:</strong></span>
+                 <span b-yg9xaoucyq class="col reduce-size"><strong b-yg9xaoucyq>Parcel:</strong></span>
+                 <span b-yg9xaoucyq class="col reduce-size"><strong b-yg9xaoucyq>Property</strong></span>
+                 <span b-yg9xaoucyq class="col reduce-size"><strong b-yg9xaoucyq>Special</strong></span>
+            </div>
+             <div b-yg9xaoucyq class="row">
+                 <span b-yg9xaoucyq class="col reduce-size"><strong b-yg9xaoucyq>Map:</strong></span>
+                 <span b-yg9xaoucyq class="col reduce-size"><strong b-yg9xaoucyq></strong></span>
+                 <span b-yg9xaoucyq class="col reduce-size"><strong b-yg9xaoucyq></strong></span>
+                 <span b-yg9xaoucyq class="col reduce-size"><strong b-yg9xaoucyq>Identifier:</strong></span>
+                 <span b-yg9xaoucyq class="col reduce-size"><strong b-yg9xaoucyq>Interest:</strong></span>
+            </div>
+            <div b-yg9xaoucyq class="row">
+                 <span b-yg9xaoucyq class="col reduce-size">133E </span>
+                 <span b-yg9xaoucyq class="col reduce-size">C </span>
+                 <span b-yg9xaoucyq class="col reduce-size">001.00</span>
+                 <span b-yg9xaoucyq class="col reduce-size"> </span>
+                 <span b-yg9xaoucyq class="col reduce-size">000</span>
+            </div>
+       </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div b-kvb30zai7e class="row mb-2">
+            <div b-kvb30zai7e class="col-lg-6 col-md-6 col-sm-12">
+                
+<div class="card mb-2">
+    <div class="card-header">
+        Value Information
+    </div>
+    <div class="card-body">
+         <div class="row">
+            <div class="col-8">
+                <p class="detailsPage"><strong>Land Market Value:</strong></p>
+            </div>
+
+            <div class="col-4 text-end">
+                $40,300
+            </div>
+
+            <div class="col-8">
+                <p class="detailsPage"><strong>Improvement Value:</strong></p>
+            </div>
+            <div class="col-4 text-end">
+                $176,100
+            </div>
+
+            <div class="col-8">
+                <p class="detailsPage"><strong>Total Market Appraisal:</strong></p>
+            </div>
+            <div class="col-4 text-end">
+                $216,400
+            </div>
+
+            <div class="col-8">
+                <p class="detailsPage"><strong>Assessment Percentage:</strong></p>
+            </div>
+            <div class="col-4 text-end">
+                25%
+            </div>
+
+            <div class="col-8">
+                <p class="detailsPage"><strong>Assessment:</strong></p>
+            </div>
+            <div class="col-4 text-end">
+                $54,100
+            </div>             
+         </div>
+    </div>
+</div>
+            </div>
+            <div b-kvb30zai7e class="col-lg-6 col-md-6 col-sm-12">
+                
+<div class="card mb-2">
+    <div class="card-header">
+        Subdivision Data
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <p><strong>Subdivision:</strong> THORNWOOD RUN</p>
+            </div>
+        </div>
+         <div class="card-body border rounded background-gray small">
+            <div class="row">
+                 <span class="col parcelSubdivisionElements"><strong>Plat Book: </strong>A</span>
+                 <span class="col parcelSubdivisionElements"><strong>Plat Page: </strong> 32</span>
+                 <span class="col parcelSubdivisionElements"><strong>Block: </strong> B</span>
+                 <span class="col parcelSubdivisionElements"><strong>Lot: </strong> 61</span>
+             </div>
+       </div>
+    </div>
+</div>
+                
+
+<div class="card mb-2">
+    <div class="card-header">
+        Additional Information
+    </div>
+    <div class="card-body">
+    </div>
+</div>
+            </div>
+        </div>
+        <div b-kvb30zai7e class="row mb-2">
+            <div b-kvb30zai7e class="col-lg-12">
+                
+<div class="card">
+    <div class="card-header">
+        General Information
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div>
+                    <p class="detailsPage"><strong>Class:</strong> 00 - Residential</p>
+                </div>
+                <div>
+                    <p class="detailsPage"><strong>City #:</strong> </p> 
+                </div>
+                <div>
+                    <p class="detailsPage"><strong>Special Service District 1:</strong> 000</p>
+                </div>
+                <div>
+                    <p class="detailsPage"><strong>District:</strong> 09</p>
+                </div>
+                <div>
+                    <p class="detailsPage"><strong>Number of buildings:</strong> 1</p>
+                </div>
+                <div>
+                    <p class="detailsPage"><strong>Utilities - Water/Sewer:</strong> 03 - PUBLIC / INDIVIDUAL</p>
+                </div>
+                <div>
+                    <p class="detailsPage"><strong>Utilities - Gas/Gas Type:</strong> 00 - NONE</p>
+                </div>
+            </div> 
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div><p class="detailsPage">&nbsp;</p></div>
+                <div>
+                    <p class="detailsPage"><strong>City:</strong> </p>
+                </div>
+                <div>
+                    <p class="detailsPage"><strong>Special Service District 2:</strong>  000</p>
+                </div>
+                <div>
+                    <p class="detailsPage"><strong>Neighborhood:</strong> R01</p>
+                </div>
+                <div>
+                    <p class="detailsPage"><strong>Number of mobile homes:</strong> 0</p>
+                </div>
+                <div>
+                    <p class="detailsPage"><strong>Utilities - Electricity:</strong> 01 - PUBLIC</p>
+                </div>
+                <div>
+                    <p class="detailsPage"><strong>Zoning:</strong> A-1</p>
+                </div>
+            </div>      
+        </div>
+    </div>
+</div> 
+            </div>
+        </div>
+            <div b-kvb30zai7e class="row mb-2">
+                <div b-kvb30zai7e class="col-lg-12">
+                    <div b-kvb30zai7e class="card">
+                        <div b-kvb30zai7e class="card-header">
+                            Building Information - Residential
+                        </div>
+                        
+
+<div class="card-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="detailsPage"><strong>Building #:</strong> 1 </p> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div>
+                    <p class="detailsPage"><strong>Improvement Type:</strong> 01 - SINGLE FAMILY </p> 
+                </div>
+                <div>
+                    <p class="detailsPage"><strong>Exterior Wall:</strong> 04 - SIDING AVERAGE </p> 
+                </div>
+                <div>
+                    <p class="detailsPage"><strong>Heat and AC:</strong> 7 - HEAT AND COOLING SPLIT </p> 
+                </div>           
+                <div>
+                    <p class="detailsPage"><strong>Quality:</strong> 1 - AVERAGE </p>
+                </div>
+                <div>
+                    <p class="detailsPage"><strong>Square Feet of Living Area:</strong> 1529 </p>
+                </div>
+                    <div>
+                        <p class="detailsPage"><strong>Foundation:</strong> 02 - CONTINUOUS FOOTING </p>
+                    </div>
+                    <div>
+                        <p class="detailsPage"><strong>Roof Framing:</strong> 02 - GABLE/HIP </p> 
+                    </div>
+                    <div>
+                        <p class="detailsPage"><strong>Cabinet/Millwork:</strong> 03 - AVERAGE </p> 
+                    </div>
+                    <div>
+                        <p class="detailsPage"><strong>Interior Finish:</strong> 07 - DRYWALL </p> 
+                    </div>
+                    <div>
+                        <p class="detailsPage"><strong>Bath Tiles:</strong> 00 - NONE </p> 
+                    </div>
+                    <div>
+                        <p class="detailsPage"><strong>Shape:</strong> 01 - RECTANGLE </p> 
+                    </div>
+                <div>
+                    <p class="detailsPage">&nbsp;</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div>
+                    <p class="detailsPage"><strong>Stories: </strong> 1.00 </p>
+                </div>
+                <div>
+                    <p class="detailsPage"><strong>Actual Year Built:</strong> 1978 </p> 
+                </div>
+                <div>
+                    <p class="detailsPage"><strong>Plumbing Fixtures:</strong> 5 </p>
+                </div> 
+                <div>
+                    <p class="detailsPage"><strong>Condition:</strong> AV - AVERAGE </p>
+                </div>    
+                <div>
+                    <p class="detailsPage">&nbsp;</p>
+                </div>        
+                    <div>
+                        <p class="detailsPage"><strong>Floor System:</strong> 04 - WOOD W/ SUB FLOOR </p>
+                    </div>
+                    <div>
+                        <p class="detailsPage"><strong>Roof Cover/Deck:</strong> 03 - COMPOSITION SHINGLE </p>
+                    </div>
+                    <div>
+                        <p class="detailsPage"><strong>Floor Finish:</strong> 11 - CARPET COMBINATION </p>
+                    </div>
+                    <div>
+                        <p class="detailsPage"><strong>Paint/Decor:</strong> 03 - AVERAGE </p>
+                    </div>
+                    <div>
+                        <p class="detailsPage"><strong>Electrical:</strong> 03 - AVERAGE </p>
+                    </div>
+                    <div>
+                        <p class="detailsPage"><strong>Structural Frame:</strong>  00 - NONE </p>
+                    </div>
+                <div>
+                    <p class="detailsPage">&nbsp;</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Building Areas</strong>
+                    </div>
+                    <div class="card-body">
+                       <div class="table-responsive">
+                           <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="col-8" scope="col">Areas</th>
+                                        <th class="text-end col-4" scope="col">Square Feet</th>
+                                    </tr>
+                                </thead>
+                                    <tbody>
+                                            <tr>
+                                                <td>BAS - BASE</td>
+                                                <td class="text-end" >1,529</td>
+                                            </tr>
+                                            <tr>
+                                                <td>CPF - CARPORT FINISHED</td>
+                                                <td class="text-end" >400</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BMU - BASEMENT UNFINISHED</td>
+                                                <td class="text-end" >1,529</td>
+                                            </tr>
+                                    </tbody>
+                           </table>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p class="detailsPage">&nbsp;</p>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="shadow-none pointer" data-bs-toggle="modal" data-bs-target="#sketch-1">
+                            Building Sketch:  <i aria-hidden="true" title="Building Sketch" class="fa-solid fa-image"></i>
+                        </strong>
+                    </div>
+                    <div class="modal fade" id="sketch-1" tabindex="-1" aria-labelledby="label-buildingSketch" aria-hidden="true">
+                        <div class="modal-dialog max-width-fit-content">
+                            <div class="modal-content max-width-fit-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="label-buildingSketch">Building Sketch</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="d-lg-none">
+                                        <img class="max-width-90-vw" src="https://stateoftennesseetn.atentcloud.tylerapp.com/Maintain/Services/GetSketchImage.ashx?jur=030&amp;parid=133E C 00100 000&amp;taxyr=2026&amp;card=1&amp;use_tpad_sketch=true" alt="Building Sketch">
+                                    </div>
+                                    <div class="d-none d-lg-block">
+                                        <img class="max-width-100-vw" src="https://stateoftennesseetn.atentcloud.tylerapp.com/Maintain/Services/GetSketchImage.ashx?jur=030&amp;parid=133E C 00100 000&amp;taxyr=2026&amp;card=1&amp;use_tpad_sketch=true" alt="Building Sketch">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <img class="buildingSketch" src="https://stateoftennesseetn.atentcloud.tylerapp.com/Maintain/Services/GetSketchImage.ashx?jur=030&amp;parid=133E C 00100 000&amp;taxyr=2026&amp;card=1&amp;use_tpad_sketch=true" alt="Building Sketch">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+ 
+                    </div>
+                </div>
+            </div>      
+        <div b-kvb30zai7e class="row mb-2">
+            <div b-kvb30zai7e class="col-lg-12">
+                
+<div class="card">
+    <div class="card-header">
+        Outbuildings & Yard Items
+    </div>
+    <div class="card-body">   
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Building/Card#</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Description</th>
+                        <th scope="col" class="text-end">Area/Units</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="fw-normal">1</th>
+                        <th class="fw-normal">WDK - WOOD DECK</th>
+                        <th class="fw-normal">12X30</th>
+                        <th class="fw-normal text-end">360</th>
+                    </tr>
+                    <tr>
+                        <th class="fw-normal">1</th>
+                        <th class="fw-normal">STP - STOOP</th>
+                        <th class="fw-normal">6X3</th>
+                        <th class="fw-normal text-end">18</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> 
+            </div>
+        </div>
+        <div b-kvb30zai7e class="row mb-2">
+            <div b-kvb30zai7e class="col-lg-12">
+                
+<div class="card">
+    <div class="card-header">
+        Sale Information
+    </div>
+    <div class="card-body">
+       <div class="table-responsive">
+       <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Sale Date</th>
+                    <th class="text-end" scope="col">Price</th>
+                    <th class="text-end" scope="col">Book</th>
+                    <th class="text-end" scope="col">Page</th>
+                    <th scope="col">Vacant/Improved</th>
+                    <th scope="col">Type Instrument  <span data-bs-toggle="tooltip" data-bs-placement="top" title='The type of deed or other legal instrument transferring ownership. Specific codes may vary from county to county; however, a "W" in the first position generally indicates a warranty deed.'><i class="multiSortTooltip fa-solid fa-circle-question"></i></span></th>
+                    <th scope="col">Qualification</th>
+                </tr>
+            </thead>
+                <tbody>
+                        <tr>
+                            <td class="fw-normal">7/2/1991</td>
+                            <td class="fw-normal text-end">$83,500</td>
+                            <td class="fw-normal text-end">434</td>
+                            <td class="fw-normal text-end">795</td>
+                            <td class="fw-normal">I - IMPROVED</td>
+                            <td class="fw-normal">WD - WARRANTY DEED</td>
+                            <td class="fw-normal">A - ACCEPTED</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-normal">6/4/1987</td>
+                            <td class="fw-normal text-end">$0</td>
+                            <td class="fw-normal text-end">405</td>
+                            <td class="fw-normal text-end">180</td>
+                            <td class="fw-normal"></td>
+                            <td class="fw-normal"> - </td>
+                            <td class="fw-normal"> - </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-normal">1/1/1985</td>
+                            <td class="fw-normal text-end">$63,000</td>
+                            <td class="fw-normal text-end">390</td>
+                            <td class="fw-normal text-end">308</td>
+                            <td class="fw-normal">I - IMPROVED</td>
+                            <td class="fw-normal">WD - WARRANTY DEED</td>
+                            <td class="fw-normal">A - ACCEPTED</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-normal">1/1/1979</td>
+                            <td class="fw-normal text-end">$57,000</td>
+                            <td class="fw-normal text-end">356</td>
+                            <td class="fw-normal text-end">345</td>
+                            <td class="fw-normal">I - IMPROVED</td>
+                            <td class="fw-normal">WD - WARRANTY DEED</td>
+                            <td class="fw-normal">A - ACCEPTED</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-normal">1/1/1978</td>
+                            <td class="fw-normal text-end">$7,850</td>
+                            <td class="fw-normal text-end">343</td>
+                            <td class="fw-normal text-end">27</td>
+                            <td class="fw-normal">V - VACANT</td>
+                            <td class="fw-normal">WD - WARRANTY DEED</td>
+                            <td class="fw-normal">A - ACCEPTED</td>
+                        </tr>
+                </tbody>
+       </table>
+       </div>
+    </div>
+</div> 
+            </div>
+        </div>
+          <div b-kvb30zai7e class="row mb-2">
+            <div b-kvb30zai7e class="col-lg-12 col-md-12 col-sm-12">
+                
+<div class="card mb-2 landInfoTable">
+    <div class="card-header">
+        Land Information
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-2 col-md-4 mb-2"><strong>Deed Acres:</strong> 0</div>
+            <div class="col-lg-2 col-md-4 mb-2"><strong>Calculated Acres:</strong> 0</div>
+            <div class="col-lg-2 col-md-4 mb-2"><strong>Total Land Units: </strong>0.88</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Land Code</th>
+                            <th class="text-end" scope="col">Soil Class</th>
+                            <th class="text-end" scope="col">Units</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                                <tr>
+                                    <td class="fw-normal">01 - RES</td>
+                                    <td class="fw-normal text-end"></td>
+                                    <td class="fw-normal text-end">0.88</td>
+                                </tr>
+                        </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+            </div>
+        </div>
+        <div b-kvb30zai7e class="row mb-2">
+            <div b-kvb30zai7e class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card mb-2 landInfoTable">
+    <div class="card-header">
+        Parcel Photos
+    </div>
+    <div class="card-body">
+        <div class="row">
+                <p>No photos available.</p>
+
+        </div>
+    </div>
+</div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        </main>
+    </div>
+    <footer b-zbz6xhz8ei class="border-top footer">
+        <div b-zbz6xhz8ei class="container">
+            <div b-zbz6xhz8ei class="row text-center">
+                <div b-zbz6xhz8ei class="col-lg-4 col-12"><a b-zbz6xhz8ei target="_blank" href="https://www.comptroller.tn.gov/office-functions/pa.html">Division of Property Assessments</a></div>
+                <div b-zbz6xhz8ei class="col-lg-4 col-12"><a b-zbz6xhz8ei target="_blank" href="https://comptroller.tn.gov/">Comptroller of the Treasury</a></div>
+                <div b-zbz6xhz8ei class="col-lg-4 col-12"><a b-zbz6xhz8ei target="_blank" href="https://www.tn.gov/">State of Tennessee</a></div>
+            </div>
+        </div>
+        <div b-zbz6xhz8ei class="row footer-top">
+            <div b-zbz6xhz8ei class="tristar">
+                <img src="/TPAD/images/footer-tristar.png" alt="Tennessee Tristar" style="height:100%" />
+            </div>
+        </div>
+        <div b-zbz6xhz8ei class="row footer-bottom">
+            <div b-zbz6xhz8ei class="col-lg-4 col-md-5 col-sm-6 footerMission mx-auto">
+                <a b-zbz6xhz8ei 
+                    href=" https://comptroller.tn.gov/mgwb.html" 
+                    target="_blank" 
+                    class="message">
+                    Our Mission: Make Government Work Better
+                </a>
+            </div>   
+            <div b-zbz6xhz8ei class="col-lg-6 col-md-6 col-sm-2">
+                <ul b-zbz6xhz8ei class="inline-list">
+                </ul>
+            </div> 
+        </div>
+    </footer>
+
+    <script src="/TPAD/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/TPAD/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/TPAD/lib/datatables/js/jquery.dataTables.js"></script>
+    <script src="/TPAD/lib/datatables/dataTables.bootstrap5.min.js"></script>
+    <script src="/TPAD/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/TPAD/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="/TPAD/lib/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="/TPAD/lib/jszip/jszip.min.js"></script>
+    <script src="/TPAD/lib/pdfmake/pdfmake.min.js"></script>
+    <script src="/TPAD/lib/pdfmake/vfs_fonts.js"></script>
+    <script src="/TPAD/lib/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="/TPAD/js/site.js?v=AnGORWEZm_L1Dc5ucHBw5I3o2RkDPqSJCxbc3Ur6u5k"></script>
+    
+
+</body>
+</html>

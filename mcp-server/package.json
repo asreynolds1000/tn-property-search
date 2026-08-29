@@ -1,0 +1,64 @@
+{
+  "name": "tn-property-search-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Tennessee property records: statewide assessment data for 86 counties via the Comptroller's TPAD, parcel geometry, and county adapters for Davidson (Nashville), Knox and Williamson. No API keys required.",
+  "type": "module",
+  "bin": {
+    "tn-property-search-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.test.json",
+    "check": "npm run typecheck && npm test",
+    "prepublishOnly": "cp ../README.md ./README.md && npm run check && npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "tennessee",
+    "property",
+    "parcel",
+    "assessor",
+    "gis",
+    "arcgis",
+    "real-estate",
+    "public-records",
+    "nashville",
+    "knoxville"
+  ],
+  "author": "Alex Reynolds",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "tsx": "^4.19.4",
+    "typescript": "^5",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asreynolds1000/tn-property-search.git",
+    "directory": "mcp-server"
+  },
+  "homepage": "https://github.com/asreynolds1000/tn-property-search#readme",
+  "bugs": {
+    "url": "https://github.com/asreynolds1000/tn-property-search/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
