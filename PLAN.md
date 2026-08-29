@@ -202,3 +202,66 @@ address and parcel id. Uniformity here would be a lie.
   byte-identical error pages and no iasWorld datalet was ever captured, so
   those two parsers currently have nothing real to test against and must not
   be written from imagination.
+
+---
+
+# STATUS as of 2026-08-29 — shipped
+
+Published: `tn-property-search-mcp` on npm (0.1.1),
+github.com/asreynolds1000/tn-property-search. 111 tests, typecheck clean.
+Coverage 89/95 counties for assessment and geometry.
+
+## What the reviews and live testing caught
+
+Recorded because none of these were visible from a green test suite, and the
+next person will be tempted to trust one.
+
+- **Every parcel polygon was wound backwards.** Esri winds exteriors
+  clockwise; RFC 7946 wants counterclockwise. 100% of parcels affected.
+  Winding-aware consumers render a CW exterior as the whole plane minus the
+  parcel.
+- **Multipart parcels rendered as one polygon with a hole.** Esri flattens all
+  rings into one list; GeoJSON treats rings after the first as holes.
+  Measured at 2.7% of a 150-parcel Greene sample.
+- **Cross-source parcel refs silently returned empty records.** A TNMap ref
+  (GISLINK, no special-interest suffix) passed to TPAD fetched a page for no
+  parcel and parsed to all-undefined, reading as "no assessment record".
+- **The TPAD parser under-read live pages by 9 fields.** TPAD is Blazor and
+  renders scoped attributes inside label tags on some pages. The fixture
+  happened to be an unattributed variant, so the parser looked correct.
+- **Williamson presented internal codes as names.** `CITY` = "263264" surfaced
+  as a city. Found only by running real queries after publishing.
+- **A fabricated "server quirk".** An early read of Metro Nashville's layer
+  "established" an `=` vs `LIKE` difference and an unfilterable APN column,
+  and both were written into the source as documented facts. Repeating each
+  call ten times showed the server simply fails 40-50% of requests. See the
+  note on `retryTransient` in `src/lib/api/esri.ts`.
+
+## Lessons that generalize
+
+1. **Repeat before concluding, on any flaky endpoint.** A single sample from a
+   service with a ~45% failure rate will "prove" whatever you tested first.
+2. **A fixture tests your idea of the data, not the data.** Two of the bugs
+   above were invisible to a passing suite because the fixture was one
+   variant of a page that has two.
+3. **Verify a subagent's findings before acting.** The reviews here were
+   high quality and every load-bearing claim still got checked against live
+   data; one claim about geometry coverage was right, and acting on it
+   without measuring would have been luck rather than diligence.
+4. **Scrubbing has more surface than it looks.** Length preservation,
+   URL-encoded variants, invented names colliding with real ones, and
+   blocklist tests that publish the names they protect — four separate
+   failure modes in one small script.
+
+## Not done, deliberately
+
+- Six counties: Chester, Hamilton, Hickman, Montgomery, Rutherford, Shelby.
+  Shelby (Memphis) is the highest-value one left. Each is an adapter behind
+  the existing interface; no architecture change is needed.
+- Knox's iasWorld portal stays unimplemented. It states terms prohibiting
+  automated collection and gates on a reCAPTCHA; KGIS publishes the same
+  assessment data openly and is what the Knox adapter uses.
+- Davidson's building-characteristics record card. The GIS layer has no
+  year-built or room counts, but the assessor's card is deep-linkable and
+  session-free at `portal.padctn.org/OFS/WP/Print/{account}/{card}` if it is
+  ever wanted.

@@ -1,6 +1,6 @@
 {
   "name": "tn-property-search-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server for Tennessee property records: statewide assessment data for 86 counties via the Comptroller's TPAD, parcel geometry, and county adapters for Davidson (Nashville), Knox and Williamson. No API keys required.",
   "type": "module",
   "bin": {

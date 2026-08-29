@@ -1,7 +1,15 @@
 # TN Property Search — MCP Server
 
+[![npm](https://img.shields.io/npm/v/tn-property-search-mcp)](https://www.npmjs.com/package/tn-property-search-mcp)
+[![license](https://img.shields.io/npm/l/tn-property-search-mcp)](./LICENSE)
+
 MCP server for Tennessee property records: statewide assessment data, parcel
 geometry, and per-county adapters for the counties that run their own systems.
+Covers 89 of 95 counties with no API key, account, or credential of any kind.
+
+```bash
+npx -y tn-property-search-mcp
+```
 
 ## Coverage
 
@@ -36,26 +44,52 @@ empty result is never mistaken for "no such property in Tennessee."
 | `autocomplete_owner` | Owner-name suggestions, TPAD counties, 3+ chars |
 | `get_flood_zone` | FEMA NFHL zone, national coverage |
 
-## Setup
+## Install
 
 ```bash
-cd mcp-server
-npm install
-npm run build
+npm install -g tn-property-search-mcp
 ```
 
 Requires Node >= 20. No API keys, no accounts, no credentials.
+
+Add to your MCP client config:
+
+```json
+{
+  "mcpServers": {
+    "tn-property-search": {
+      "command": "npx",
+      "args": ["-y", "tn-property-search-mcp"]
+    }
+  }
+}
+```
+
+<details>
+<summary>Running from a local clone instead</summary>
+
+```bash
+git clone https://github.com/asreynolds1000/tn-property-search.git
+cd tn-property-search/mcp-server
+npm install
+npm run build
+```
 
 ```json
 {
   "mcpServers": {
     "tn-property-search": {
       "command": "node",
-      "args": ["/path/to/tn-property-search/mcp-server/dist/index.js"]
+      "args": ["/absolute/path/to/tn-property-search/mcp-server/dist/index.js"]
     }
   }
 }
 ```
+
+The server reads its build at startup, so rebuild and restart your client
+after changing anything under `src/`.
+
+</details>
 
 ## Data sources
 
@@ -109,17 +143,50 @@ repository.
 
 ```bash
 cd mcp-server
-npm run check     # typecheck (incl. tests) + unit tests, no network
-npx tsc --noEmit  # typecheck
+npm install
+npm run check     # typecheck (incl. tests) + 111 unit tests, no network
+npm run build
 ```
 
-Parser fixtures are real captured HTML with owner names and addresses replaced
-by synthetic ones via `scripts/scrub-fixtures.mjs`. Substitutions are
-length-preserving, because several upstream formats are fixed-width and
-space-significant — a replacement of a different length shifts every field
-after it and the fixture silently stops testing the real format. Replacement
-surnames are verified absent from live assessment data; an invented name that
-happens to be real puts a real owner back into an "anonymized" fixture.
+`npm run typecheck` covers the test files as well as `src/`; the base
+`tsconfig.json` excludes them, so a broken test import would otherwise
+typecheck clean.
+
+### Adding a county
+
+Six counties still run their own systems with no adapter: Chester, Hamilton,
+Hickman, Montgomery, Rutherford and Shelby.
+
+Assessment and geometry are separate provider roles (`src/types/providers.ts`)
+because they do not co-vary by county — Knox and Williamson serve both from
+one source, Davidson needs a different one for each, and the TPAD counties
+split across two. A new county implements whichever roles it can and
+registers in `src/lib/registry.ts`; nothing else changes.
+
+`src/lib/api/williamson.ts` is the simplest reference (public ArcGIS, both
+roles). `PLAN.md` carries the reverse-engineering notes and the revision
+history behind the architecture.
+
+### Fixtures and PII
+
+Parser fixtures are real captured HTML with identities replaced by synthetic
+ones via `scripts/scrub-fixtures.mjs`. Three properties of that script matter:
+
+- **Substitutions are length-preserving.** Several upstream formats are
+  fixed-width and space-significant, so a replacement of a different length
+  shifts every field after it and the fixture silently stops testing the real
+  format. The script throws rather than emit a length-changed file.
+- **Encoded variants are substituted too.** TPAD round-trips search criteria
+  through a URL-encoded JSON blob in the page, so a value also appears with
+  its spaces as `%20`. Scrubbing only the literal form leaves the encoded one
+  behind, where a grep for the plain string will not find it.
+- **Replacement surnames are verified absent from live assessment data.** An
+  invented name that happens to be real puts a real owner back into an
+  "anonymized" fixture — three of the first batch collided.
+
+Tests assert *positively* on the synthetic values rather than listing the real
+names in a blocklist, since a blocklist would publish the identities the scrub
+exists to remove.
 
 Raw HAR captures are gitignored: they contain session cookies and tokens.
 
