@@ -42,7 +42,7 @@ src/
 ```
 
 ### County adapter interface
-Every non-TPAD county implements the same shape, so the remaining 7 holdouts
+Every non-TPAD county implements the same shape, so the remaining 6 holdouts
 slot in later without restructuring:
 
 ```ts
